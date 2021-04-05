@@ -8,7 +8,9 @@ namespace PlatnikHasla
 {
     class Register
     {
-        private const string Path = @"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Asseco Poland SA\Płatnik\10.02.002\Admin";
+        private const string AdminPath = @"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Asseco Poland SA\Płatnik\10.02.002\Admin";
+        private const string DatabasePath = @"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Asseco Poland SA\Płatnik\10.02.002\Baza";
+
         private readonly List<string> _userPasswords;
         private readonly List<string> _databasePasswords;
 
@@ -21,9 +23,9 @@ namespace PlatnikHasla
             _databasePasswords = new List<string>();
         }
 
-        private string GetPassword(string entry)
+        private string GetPassword(string path, string entry)
         {
-            return Microsoft.Win32.Registry.GetValue(Path, entry, null)?.ToString();
+            return Microsoft.Win32.Registry.GetValue(path, entry, null)?.ToString();
         }
 
         public void GetUserPasswords()
@@ -31,7 +33,7 @@ namespace PlatnikHasla
             int i = 4;
 
             string userPassword;
-            while ((userPassword = GetPassword($"Adm{i}")) != null)
+            while ((userPassword = GetPassword(AdminPath, $"Adm{i}")) != null)
             {
                 _userPasswords.Add(userPassword);
                 i++;
@@ -41,7 +43,7 @@ namespace PlatnikHasla
         public void GetDatabasePasswords()
         {
             string databasePassword;
-            if ((databasePassword = GetPassword("PWD")) != null)
+            if ((databasePassword = GetPassword(DatabasePath, "Jet OLEDB:Database Password")) != null)
             {
                 _databasePasswords.Add(databasePassword);
             }
