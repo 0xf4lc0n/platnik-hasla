@@ -5,6 +5,8 @@ Bardzo prosty program pozwalający na odyskanie hasła administratora i hasła d
 Wspierane wersje programu Płatnik:
 * 10.02.002 z bazą Microsoft Access
 
+[Pobierz najnowszą wersję](https://github.com/0xf4lc0n/platnik-hasla/releases/download/v1.0.0-alpha/PlatnikHasla.exe)
+
 Autor ikony:
 https://www.flaticon.com/authors/fjstudio
 
