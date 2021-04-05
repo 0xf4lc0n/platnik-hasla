@@ -5,6 +5,9 @@ Bardzo prosty program pozwalający na odyskanie hasła administratora i hasła d
 Wspierane wersje programu Płatnik:
 * 10.02.002 z bazą Microsoft Access
 
+Autor ikony:
+https://www.flaticon.com/authors/fjstudio
+
 Oryginalny skrypt dekodujący napisany w Perlu:
 https://platnik.fork.pl/index.php
 
